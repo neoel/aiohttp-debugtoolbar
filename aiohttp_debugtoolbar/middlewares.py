@@ -51,7 +51,7 @@ def middleware(app, handler):
         if peername:
             remote_host, remote_port = peername[:2]
         else:
-            remote_host = 'localhost'
+            remote_host = '0.0.0.0'
 
         last_proxy_addr = remote_host
 
