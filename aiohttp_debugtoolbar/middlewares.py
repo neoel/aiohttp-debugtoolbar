@@ -48,7 +48,10 @@ def middleware(app, handler):
 
         # FIXME: error when run trough unixsocket
         peername = request.transport.get_extra_info('peername')
-        remote_host, remote_port = peername[:2]
+        if peername:
+            remote_host, remote_port = peername[:2]
+        else:
+            remote_host = 'localhost'
 
         last_proxy_addr = remote_host
 
